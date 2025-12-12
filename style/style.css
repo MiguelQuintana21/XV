@@ -1026,8 +1026,8 @@ body.dark-theme .gift-button:hover {
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
     padding: 80px 0 30px;
     margin-top: 60px;
     font-family: "Alex Brush", cursive;
@@ -1090,40 +1090,7 @@ footer {
     animation: expand 2s ease forwards;
 }
 
-/* Cita */
-.footer-quote {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-}
 
-.footer-quote p {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    color: #d1d1d1;
-    line-height: 1.6;
-    font-style: italic;
-    margin: 10px 0;
-    position: relative;
-    z-index: 2;
-}
-
-.quote-icon {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 60px;
-    font-weight: bold;
-    line-height: 1;
-    opacity: 0.2;
-    color: #b38c52;
-}
-
-.quote-icon.closing {
-    margin-top: 5px;
-}
 
 /* RSVP */
 .footer-rsvp {
@@ -1307,7 +1274,7 @@ footer {
     width: 10px;
     height: 10px;
     opacity: 0.3;
-    background-color: #b38c52;
+    background-color: #df6dc3;
     transform: rotate(45deg);
 }
 
@@ -1317,7 +1284,7 @@ footer {
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: #b38c52;
+    background-color: #df6dc3;
     border-radius: 50%;
 }
 
@@ -1642,7 +1609,7 @@ footer {
 
 .hero {
     position: relative;
-    background-image: url('../img/mariana.jpg');
+    background-image: url('../images/portada_celular.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -2243,10 +2210,22 @@ h1 {
 
     .flor-izquierda,
     .flor-derecha {
-        width: 150px;
+        width: 100px;
     }
 
     .flores-decoracion {
-        height: 150px;
+        height: 100px;
     }
+}
+
+
+/* estilo para las flores arriba del footer */
+
+.flores {
+    background-image: url('/img/flores.png');
+    background-repeat: repeat-x;
+    /* Repite solo hacia la derecha (eje X) */
+    background-size: 200px auto;
+    /* Cambia 50px al ancho que quieras */
+    height: 100px;
 }

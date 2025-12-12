@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tania & David - Nuestra Boda</title>
-    <link rel="stylesheet" href="style/style.css?=8">
+    <link rel="stylesheet" href="style/style.css?=13">
+    <link rel="stylesheet" href="src/output.css">
 </head>
 
 <body>
@@ -171,43 +172,42 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 style="color: rgb(255, 255, 255); font-size: 100px;">Mariana</h1>
+    <section id="inicio">
+        <div class="relative w-full min-h-screen bg-gray-900 z-0">
 
-                <div class="divider"></div>
-
-                <p style="color: white;" class="quote">MIS XV AÑOS</p>
-
-
+            <div class="lg:hidden absolute inset-0 z-20 h-full rounded-br-xl rounded-bl-xl bg-black opacity-75">
+                <img src="images/portada_celular.jpg" class="w-full h-full object-cover">
             </div>
+
+            <div class="hidden lg:flex absolute inset-0 z-[999] h-full bg-black opacity-80">
+                <img src="images/portada_pc.jpg" class="w-full h-full object-cover">
+            </div>
+
+            <div class="relative z-[1000] flex items-center justify-center min-h-screen ">
+                <div class="text-center">
+                    <h1 style="color: rgb(255, 255, 255); font-size: 100px;">Mariana</h1>
+
+                    <div class="divider"></div>
+
+                    <p style="color: white;" class="quote">MIS XV AÑOS</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- Sección Padres -->
     <section class="alt">
-        <div class="container" style="position: relative; overflow: hidden;">
-            <h2 class="section-title"
-                style="font-size: 2rem; color: #d4af37; margin-bottom: 40px; font-family: 'Parisine', serif;">Con la
-                bendición de
-                mis padres</h2>
-
-            <div class="justify-center">
-                <div class="grid-item" style="padding: 40px; box-shadow: 0 8px 25px">
-                    <p style="font-size: 1.3rem; color: #333; margin: 15px 0;"><strong>Alma Aracely Quintana
-                            Gómez</strong></p>
-                    <p style="font-size: 1.5rem; color: #d4af37; margin: 20px 0; font-family: 'Georgia', serif;">
-                        <strong>Y</strong>
-                    </p>
-                    <p style="font-size: 1.3rem; color: #333; margin: 15px 0;"><strong>José Carmen Grave
-                            Navarro</strong></p>
-                </div>
+        <div class="container"
+            style="border: 2px solid #d4af37; border-radius: 20px; padding: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+            <div class="flores-decoracion">
+                <img src="img/mariposa.png" alt="" class="flor-derecha">
             </div>
+            <h2 class="section-title">Padres y padrinos</h2>
 
-            <div style="position: absolute; top: 10px; left: 10px; font-size: 3rem; color: rgba(212, 175, 55, 0.2);">✨
-            </div>
-            <div style="position: absolute; top: 10px; right: 10px; font-size: 3rem; color: rgba(212, 175, 55, 0.2);">✨
+            <div style="max-width: 500px; margin: 0 auto; text-align: center;">
+                <img src="img/mariposa.png" alt="" class="flor-izquierda">
+
             </div>
         </div>
     </section>
@@ -222,67 +222,76 @@
             <h2 class="section-title">Quiero compartir mi sueño con ustedes</h2>
 
             <div style="max-width: 500px; margin: 0 auto; text-align: center;">
-                <p style="font-size: 1.3rem; font-weight: 500; margin-bottom: 10px;">20 de Diciembre de 2025</p>
-                <p>3:30 p.m.</p>
+                <p style="font-size: 1.3rem; font-weight: 500; margin-bottom: 10px;">21 de Febrero de 2026</p>
+                <p style="font-size: 1.3rem; font-weight: 500; margin-bottom: 10px;">Misa - San Francisco de Asís</p>
+                <p>7:00 p.m</p>
+                <p style="font-size: 1.3rem; font-weight: 500; margin-bottom: 10px;">Después de la misa</p>
+                <p>8:00 p.m</p>
                 <p style="margin: 20px 0 10px;">Escuinapa, Sinaloa</p>
                 <p>Salón - Zahara´s</p>
+                <div class="map-container" style="margin-top: 20px; border: 2px solid #d4af37; border-radius: 20px; 
+           padding: 150px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+           max-width: 1500px; margin-left: auto; margin-right: auto;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d446.56614297068404!2d-105.77313280117158!3d22.831636946077765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x869ee399bd72098d%3A0xbbe9318fbb5d8dd!2sSalon%20Zahara&#39;s!5e0!3m2!1ses-419!2smx!4v1763531116894!5m2!1ses-419!2smx"
+                        width="100" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <h2 style="margin-top: 30px;" class="section-title">Cuenta regresiva</h2>
+                <div class="clock-countdown">
+                    <div style="margin-top: 50px;" class="clock-container">
+                        <div class="clock-face">
+                            <div class="clock-center"></div>
+                            <div class="clock-hand hour-hand"></div>
+                            <div class="clock-hand minute-hand"></div>
+                            <div class="clock-hand second-hand"></div>
+
+                            <div class="clock-numbers">
+                                <span class="clock-number n12">12</span>
+                                <span class="clock-number n3">3</span>
+                                <span class="clock-number n6">6</span>
+                                <span class="clock-number n9">9</span>
+                            </div>
+
+                            <div class="clock-marks">
+                                <div class="clock-mark"></div>
+                                <div class="clock-mark"></div>
+                                <div class="clock-mark"></div>
+                                <div class="clock-mark"></div>
+                                <div class="clock-mark"></div>
+                                <div class="clock-mark"></div>
+                                <div class="clock-mark"></div>
+                                <div class="clock-mark"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="countdown-time">
+                        <div class="time-unit">
+                            <div class="time-number" id="days">255</div>
+                            <div class="time-label">Días</div>
+                        </div>
+                        <div class="time-unit">
+                            <div class="time-number" id="hours">06</div>
+                            <div class="time-label">Horas</div>
+                        </div>
+                        <div class="time-unit">
+                            <div class="time-number" id="minutes">42</div>
+                            <div class="time-label">Minutos</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="flores-decoracion">
                 <img src="img/image-Photoroom.png" alt="" class="flor-izquierda">
             </div>
         </div>
-        <div class="map-container" style="margin-top: 10px;">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d446.56614297068404!2d-105.77313280117158!3d22.831636946077765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x869ee399bd72098d%3A0xbbe9318fbb5d8dd!2sSalon%20Zahara&#39;s!5e0!3m2!1ses-419!2smx!4v1763531116894!5m2!1ses-419!2smx"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+
         <div class="footer-rsvp fade-in">
-            <p style="font-size: 1.3rem; font-weight: 500; margin-bottom: 10px;">Cuenta regresiva</p>
-            <div class="clock-countdown">
-                <div class="clock-container">
-                    <div class="clock-face">
-                        <div class="clock-center"></div>
-                        <div class="clock-hand hour-hand"></div>
-                        <div class="clock-hand minute-hand"></div>
-                        <div class="clock-hand second-hand"></div>
 
-                        <div class="clock-numbers">
-                            <span class="clock-number n12">12</span>
-                            <span class="clock-number n3">3</span>
-                            <span class="clock-number n6">6</span>
-                            <span class="clock-number n9">9</span>
-                        </div>
-
-                        <div class="clock-marks">
-                            <div class="clock-mark"></div>
-                            <div class="clock-mark"></div>
-                            <div class="clock-mark"></div>
-                            <div class="clock-mark"></div>
-                            <div class="clock-mark"></div>
-                            <div class="clock-mark"></div>
-                            <div class="clock-mark"></div>
-                            <div class="clock-mark"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="countdown-time">
-                    <div class="time-unit">
-                        <div class="time-number" id="days">255</div>
-                        <div class="time-label">Días</div>
-                    </div>
-                    <div class="time-unit">
-                        <div class="time-number" id="hours">06</div>
-                        <div class="time-label">Horas</div>
-                    </div>
-                    <div class="time-unit">
-                        <div class="time-number" id="minutes">42</div>
-                        <div class="time-label">Minutos</div>
-                    </div>
-                </div>
-            </div>
 
     </section>
 
@@ -322,6 +331,8 @@
 
 
 
+
+
     <!-- Footer -->
     <footer>
         <div class="hearts-bg">
@@ -356,17 +367,10 @@
                     <p class="location">Escuinapa, Sinaloa</p>
                     <div class="divider-animated"></div>
                 </div>
-
-                <div class="footer-quote fade-in">
-                    <div class="quote-icon">"</div>
-                    <div class="quote-icon closing">"</div>
-                </div>
-
-
             </div>
 
             <div class="footer-bottom">
-                <p class="pulse-animation">Con cariño, Tania y David.</p>
+                <p class="pulse-animation">Mariana Belén Grave Quintana.</p>
             </div>
         </div>
     </footer>
@@ -394,7 +398,7 @@
                 input.addEventListener('change', updateFooterTheme);
             });
 
-            const weddingDate = new Date('December 20, 2025 16:00:00').getTime();
+            const weddingDate = new Date('February 21, 2026 20:00:00').getTime();
 
             function updateCountdown() {
                 const now = new Date().getTime();
