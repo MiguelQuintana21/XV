@@ -13,15 +13,15 @@
     --quote-color: #666;
     --evento-bg: #F9FAF5;
     --hero-bg: #f5f5f5;
-    --link-hover: #b38c52;
+    --link-hover: #000000;
     --logo-color: #666;
 }
 
 
 body.dark-theme {
     --background-color: #121212;
-    --text-color: #e0e0e0;
-    --header-bg: rgba(18, 18, 18, 0.9);
+    --text-color: #ffffff;
+    --header-bg: #121212;
     --header-shadow: rgba(0, 0, 0, 0.3);
     --section-alt-bg: #000000;
     --section-title-color: #b38c52;
@@ -30,7 +30,7 @@ body.dark-theme {
     --quote-color: #a0a0a0;
     --evento-bg: #1a1a1a;
     --hero-bg: #1e1e1e;
-    --link-hover: #d4af6a;
+    --link-hover: #ffffff;
     --logo-color: #b0b0b0;
 }
 
@@ -79,7 +79,7 @@ h3,
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: var(--logo-color);
 }
 
 .container {
@@ -127,6 +127,7 @@ header {
     align-items: center;
     justify-content: flex-end;
 }
+
 
 .desktop-menu .switch {
     margin-left: 30px;
@@ -774,7 +775,7 @@ body.dark-theme .gift-button:hover {
     height: 100%;
     border-radius: 50%;
     background-color: #F9FAF5;
-    border: 4px solid #A38350;
+    border: 4px solid #df6dc3;
     box-shadow: 0 0 30px rgba(115, 117, 102, 0.2), inset 0 0 10px rgba(115, 117, 102, 0.1);
     position: relative;
 }
@@ -783,7 +784,7 @@ body.dark-theme .gift-button:hover {
     position: absolute;
     width: 12px;
     height: 12px;
-    background-color: #A38350;
+    background-color: #df6dc3;
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -793,7 +794,7 @@ body.dark-theme .gift-button:hover {
 
 .clock-hand {
     position: absolute;
-    background-color: #737566;
+    background-color: #000000;
     transform-origin: bottom center;
     bottom: 50%;
     left: 50%;
@@ -810,14 +811,14 @@ body.dark-theme .gift-button:hover {
 .minute-hand {
     width: 3px;
     height: 70px;
-    background-color: #737566;
+    background-color: #000000;
     animation: rotateMinuteHand 3600s linear infinite;
 }
 
 .second-hand {
     width: 2px;
     height: 80px;
-    background-color: #C8AA76;
+    background-color: #df6dc3;
     animation: rotateSecondHand 60s linear infinite;
 }
 
@@ -833,7 +834,7 @@ body.dark-theme .gift-button:hover {
     position: absolute;
     font-family: "Alex Brush", cursive;
     font-size: 18px;
-    color: #737566;
+    color: #000000;
     font-weight: 500;
 }
 
@@ -873,7 +874,7 @@ body.dark-theme .gift-button:hover {
     position: absolute;
     width: 3px;
     height: 10px;
-    background-color: #A4A593;
+    background-color: #000000;
     left: 50%;
     top: 5px;
     transform: translateX(-50%);
@@ -929,14 +930,14 @@ body.dark-theme .gift-button:hover {
 .time-number {
     font-size: 42px;
     font-weight: 400;
-    color: #A38350;
+    color: #df6dc3;
     font-family: "Alex Brush", cursive;
     margin-bottom: 5px;
 }
 
 .time-label {
     font-size: 14px;
-    color: #737566;
+    color: #000000;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 400;
@@ -975,37 +976,37 @@ body.dark-theme .gift-button:hover {
 
 /* Modo oscuro */
 .dark-theme .clock-face {
-    background-color: #737566;
-    border-color: #C8AA76;
+    background-color: #ffffff;
+    border-color: #df6dc3;
 }
 
 .dark-theme .clock-center {
-    background-color: #C8AA76;
+    background-color: #df6dc3;
 }
 
 .dark-theme .hour-hand,
 .dark-theme .minute-hand {
-    background-color: #F9FAF5;
+    background-color: #000000;
 }
 
 .dark-theme .second-hand {
-    background-color: #C8AA76;
+    background-color: #df6dc3;
 }
 
 .dark-theme .clock-number {
-    color: #F9FAF5;
+    color: #000000;
 }
 
 .dark-theme .clock-mark {
-    background-color: #A4A593;
+    background-color: #ffffff;
 }
 
 .dark-theme .time-number {
-    color: #C8AA76;
+    color: #df6dc3;
 }
 
 .dark-theme .time-label {
-    color: #F9FAF5;
+    color: #000000;
 }
 
 /* Responsive */
@@ -1395,7 +1396,7 @@ footer {
 
 /* Tema oscuro/claro adaptativo con el switch */
 .dark-theme footer {
-    background-color: #222;
+    background-color: #ffffff;
 }
 
 .light-theme footer {
@@ -1410,7 +1411,7 @@ footer {
 .light-theme .heart,
 .light-theme .heart:before,
 .light-theme .heart:after {
-    background-color: rgba(179, 140, 82, 0.6);
+    background-color: #df6dc3;
 }
 
 .light-theme .time-container span {
@@ -1621,7 +1622,7 @@ footer {
 
 .hero_footer {
     position: relative;
-    background-image: url('img/imagen\ 7.jpeg');
+    background-image: url('img/imagen7.jpeg');
     background-size: cover;
     background-position: center;
     height: 50vh;
@@ -2228,4 +2229,147 @@ h1 {
     background-size: 200px auto;
     /* Cambia 50px al ancho que quieras */
     height: 100px;
+}
+
+/* --- Estilos de la Línea del Tiempo --- */
+.timeline-wrapper {
+    padding: 50px 0;
+    position: relative;
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+/* La línea dorada central */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: #df6dc3;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px;
+}
+
+/* Contenedor de cada item */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+/* Los círculos indicadores en la línea */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: white;
+    border: 3px solid #df6dc3;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Posicionamiento izquierda/derecha */
+.left {
+    left: 0;
+    text-align: right;
+}
+
+.right {
+    left: 50%;
+    text-align: left;
+}
+
+.right::after {
+    left: -10px;
+}
+
+/* Contenido de la tarjeta de texto */
+.timeline-content {
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #df6dc3;
+}
+
+.timeline-content h3 {
+    color: #df6dc3;
+    margin: 5px 0;
+}
+
+.time {
+    display: block;
+    font-weight: bold;
+    color: #df6dc3;
+    font-size: 1.2rem;
+}
+
+/* --- Fotos Flotantes --- */
+.timeline-img {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+
+.left .timeline-img {
+    right: -180px;
+    /* Ajusta según el tamaño de pantalla */
+}
+
+.right .timeline-img {
+    left: -180px;
+}
+
+.timeline-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #df6dc3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* --- Adaptación para Móvil --- */
+@media screen and (max-width: 768px) {
+    .timeline::after {
+        left: 31px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+        text-align: left;
+    }
+
+    .timeline-item::after {
+        left: 21px;
+    }
+
+    .right {
+        left: 0%;
+    }
+
+    .timeline-img {
+        width: 150px;
+        height: 150px;
+        position: relative;
+        margin-bottom: 10px;
+        left: 0 !important;
+        right: 0 !important;
+    }
 }

@@ -5,12 +5,306 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tania & David - Nuestra Boda</title>
-    <link rel="stylesheet" href="style/style.css?=13">
+    <link rel="stylesheet" href="style/style.css?=19">
     <link rel="stylesheet" href="src/output.css">
 </head>
+<style>
+    /* --- SOBRE PANTALLA COMPLETA --- */
+    #envelope-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 10000;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        pointer-events: none;
+        /* Permite que se vea lo de abajo cuando termine */
+    }
 
-<body>
+    /* Solapa Superior (El triángulo de arriba) */
+    .flap-top {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 55vh;
 
+        /* Intenta con esta ruta (sin la barra inicial) */
+        background-image: url('img/textura_carta_2.jpg');
+
+        /* Estas 3 líneas son obligatorias para que la foto se acomode bien */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: all;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        ;
+    }
+
+    /* Cuerpo Inferior (La parte de abajo) */
+    .flap-bottom {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 70vh;
+
+        /* CAMBIA ESTO: Usa la ruta de tu imagen local */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.0)),
+            url('img/textura_carta_2.jpg');
+        /* Ajustes para que la imagen se vea perfecta */
+        background-size: cover;
+        background-position: bottom center;
+        /* Alineamos al fondo para que encaje con la solapa */
+        background-repeat: no-repeat;
+
+        /* Mantenemos tu diseño de corte */
+        clip-path: polygon(0% 20%, 50% 0%, 100% 20%, 100% 100%, 0% 100%);
+        z-index: 2;
+        transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: all;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 20px;
+    }
+
+    /* El Sello de Lacre en el centro */
+    .wax-seal-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 4;
+        cursor: pointer;
+        transition: all 0.5s ease;
+        pointer-events: all;
+    }
+
+    .wax-seal-wrapper img {
+        width: 120px;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    }
+
+    /* Textos dentro de las solapas */
+    .font-script-intro {
+        font-family: 'Georgia', serif;
+        font-size: 3rem;
+        color: #df6dc3;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+    .toca-aqui-intro {
+        font-size: 0.9rem;
+        letter-spacing: 3px;
+        color: #777;
+        margin-bottom: 20px;
+    }
+
+    /* --- ANIMACIÓN DE APERTURA --- */
+    .opened .flap-top {
+        transform: translateY(-100%);
+        /* Sube hasta desaparecer */
+    }
+
+    .opened .flap-bottom {
+        transform: translateY(100%);
+        /* Baja hasta desaparecer */
+    }
+
+    .opened .wax-seal-wrapper {
+        opacity: 0;
+        transform: translate(-50%, -150%) scale(0.5);
+        /* Se desvanece hacia arriba */
+    }
+
+    /* Bloqueo de scroll mientras está cerrado */
+    body.no-scroll {
+        overflow: hidden;
+    }
+
+    :root {
+        --bg-color: #f3e5f5;
+        --envelope-color: #ffffff;
+        --flap-color: #e0e0e0;
+    }
+
+    .container-invitacion {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: var(--bg-color);
+    }
+
+    .envelope-wrapper {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        background-color: var(--envelope-color);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Solapa superior */
+    .envelope-flap {
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-left: 150px solid transparent;
+        border-right: 150px solid transparent;
+        border-top: 100px solid var(--flap-color);
+        /* Color de la tapa */
+        z-index: 3;
+        transform-origin: top;
+        transition: transform 0.6s ease;
+    }
+
+    /* Cuerpo frontal (bolsillo) */
+    .envelope-front {
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-left: 150px solid transparent;
+        border-right: 150px solid transparent;
+        border-bottom: 100px solid #fff;
+        z-index: 4;
+    }
+
+    /* La carta */
+    .letter {
+        position: absolute;
+        bottom: 0;
+        left: 10%;
+        width: 80%;
+        height: 180px;
+        background: white;
+        z-index: 2;
+        transition: transform 0.8s ease;
+        padding: 10px;
+        box-sizing: border-box;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* --- CLASES DE ANIMACIÓN --- */
+
+    /* Cuando el sobre está abierto */
+    .envelope-wrapper.open .envelope-flap {
+        transform: rotateX(180deg);
+        z-index: 1;
+        /* Pasa atrás para que la carta salga */
+    }
+
+    .envelope-wrapper.open .letter {
+        transform: translateY(-120px);
+        /* Sube la carta */
+        z-index: 5;
+        /* Pasa al frente de todo */
+    }
+
+    /* ================================================= */
+    /* 4. OTROS ESTILOS QUE YA TENÍAS (Ajustar según sea necesario) */
+    /* ================================================= */
+
+    /* Estilos del Hero Section (para asegurar que se vea bien DEBAJO del overlay) */
+    #inicio {
+        /* Asegúrate que el contenido del hero quede por detrás del z-index del overlay */
+        z-index: 1;
+    }
+
+    /* Estilos del divisor (divider) */
+    .divider {
+        width: 50%;
+        height: 2px;
+        background-color: white;
+        /* o #d4af37 */
+        margin: 20px auto;
+    }
+
+    /* Estilos de la cita */
+    .quote {
+        font-size: 1.5em;
+        font-style: italic;
+    }
+
+    /* Estilos para las secciones Alt y Evento */
+    .alt,
+    .evento {
+        padding: 60px 0;
+        text-align: center;
+    }
+
+    /* Estilos para el mapa (map-container) */
+    .map-container {
+        padding: 0 !important;
+        /* Deshacer el padding excesivo en tu HTML */
+        height: 450px;
+        /* Altura fija para el mapa */
+        overflow: hidden;
+        margin-top: 20px !important;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Definimos la animación */
+    @keyframes parpadeo {
+        0% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.3;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    /* Creamos una clase para aplicar el efecto */
+    .efecto-parpadeo {
+        animation: parpadeo 2s infinite ease-in-out;
+        /* 2 segundos, infinito y suave */
+    }
+</style>
+
+<body class="no-scroll">
+
+    <div id="envelope-container">
+        <div class="flap-top" id="top-flap">
+            <h1 class="font-script-intro">Mis XV Años</h1>
+            <p class="toca-aqui-intro">MARIANA</p>
+            <p class="efecto-parpadeo"
+                style="font-size: 0.7rem; color: #000000; font-weight: bold; letter-spacing: 1px;">
+                HAZ CLIC EN EL SELLO PARA ENTRAR
+            </p>
+        </div>
+
+        <div class="wax-seal-wrapper" onclick="abrirTodo()">
+            <img src="img/sello_carta.png" alt="Sello">
+        </div>
+
+        <div class="flap-bottom">
+            <div style="text-align: center; color: #999; font-size: 0.8rem; margin-bottom: 10px;">
+                <p>21 DE FEBRERO DE 2026</p>
+            </div>
+        </div>
+    </div>
     <!-- Header/Navegación -->
     <header>
         <div class="container">
@@ -23,7 +317,6 @@
                     <a href="#inicio">INICIO</a>
                     <a href="#evento">EVENTO</a>
                     <a href="#info">INFORMACIÓN</a>
-                    <a href="#regalos">REGALOS</a>
                     <a href="#galeria">GALERÍA</a>
                     <label class="switch">
                         <input id="input" type="checkbox" checked="lightTheme" />
@@ -99,7 +392,6 @@
                 <a href="#inicio">INICIO</a>
                 <a href="#evento">EVENTO</a>
                 <a href="#info">INFORMACIÓN</a>
-                <a href="#regalos">REGALOS</a>
                 <a href="#galeria">GALERÍA</a>
                 <label class="switch">
                     <input id="input" type="checkbox" />
@@ -176,11 +468,11 @@
         <div class="relative w-full min-h-screen bg-gray-900 z-0">
 
             <div class="lg:hidden absolute inset-0 z-20 h-full rounded-br-xl rounded-bl-xl bg-black opacity-75">
-                <img src="images/portada_celular.jpg" class="w-full h-full object-cover">
+                <img src="img/imagen6.jpg" class="w-full h-full object-cover">
             </div>
 
             <div class="hidden lg:flex absolute inset-0 z-[999] h-full bg-black opacity-80">
-                <img src="images/portada_pc.jpg" class="w-full h-full object-cover">
+                <img src="img/imagen7.jpg" class="w-full h-full object-cover">
             </div>
 
             <div class="relative z-[1000] flex items-center justify-center min-h-screen ">
@@ -199,7 +491,7 @@
     <!-- Sección Padres -->
     <section class="alt">
         <div class="container"
-            style="border: 2px solid #d4af37; border-radius: 20px; padding: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+            style="border: 2px solid #df6dc3; border-radius: 20px; padding: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
             <div class="flores-decoracion">
                 <img src="img/mariposa.png" alt="" class="flor-derecha">
             </div>
@@ -214,22 +506,71 @@
 
     <!-- Sección Evento -->
     <section class="evento" id="evento">
+        <div class="hearts-bg">
+            <i class="heart"></i>
+            <i class="heart"></i>
+            <i class="heart"></i>
+            <i class="heart"></i>
+            <i class="heart"></i>
+            <i class="heart"></i>
+            <i class="heart"></i>
+            <i class="heart"></i>
+            <i class="heart"></i>
+            <i class="heart"></i>
+            <i class="heart"></i>
+            <i class="heart"></i>
+        </div>
         <div class="container"
-            style="border: 2px solid #d4af37; border-radius: 20px; padding: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+            style="border: 2px solid #df6dc3; border-radius: 20px; padding: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
             <div class="flores-decoracion">
                 <img src="img/image-Photoroom (1).png" alt="" class="flor-derecha">
             </div>
             <h2 class="section-title">Quiero compartir mi sueño con ustedes</h2>
+            <div class="timeline-wrapper">
+                <h2 class="section-title">Itinerario de mi Fiesta</h2>
+
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-img floating">
+                            <img src="img/Parroquia.webp" alt="Misa">
+                        </div>
+                        <div class="timeline-content">
+                            <span class="time">07:00 PM</span>
+                            <h3>Ceremonia Religiosa</h3>
+                            <p>Parroquia San Francisco de Asís</p>
+                            <p class="location-detail">Escuinapa, Sinaloa</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item right">
+                        <div class="timeline-img floating">
+                            <img src="img/salon.jpg" alt="Recepción">
+                        </div>
+                        <div class="timeline-content">
+                            <span class="time">08:00 PM</span>
+                            <h3>Recepción</h3>
+                            <p>Salón Zahara's</p>
+                            <p class="location-detail">¡Comienza la celebración!</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item left">
+                        <div class="timeline-img floating">
+                            <img src="img/vals.jpg" alt="Vals">
+                        </div>
+                        <div class="timeline-content">
+                            <span class="time">09:30 PM</span>
+                            <h3>Vals y Brindis</h3>
+                            <p>Un momento mágico</p>
+                            <p class="location-detail">Cena y baile familiar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div style="max-width: 500px; margin: 0 auto; text-align: center;">
-                <p style="font-size: 1.3rem; font-weight: 500; margin-bottom: 10px;">21 de Febrero de 2026</p>
-                <p style="font-size: 1.3rem; font-weight: 500; margin-bottom: 10px;">Misa - San Francisco de Asís</p>
-                <p>7:00 p.m</p>
-                <p style="font-size: 1.3rem; font-weight: 500; margin-bottom: 10px;">Después de la misa</p>
-                <p>8:00 p.m</p>
-                <p style="margin: 20px 0 10px;">Escuinapa, Sinaloa</p>
-                <p>Salón - Zahara´s</p>
-                <div class="map-container" style="margin-top: 20px; border: 2px solid #d4af37; border-radius: 20px; 
+
+                <div class="map-container" style="margin-top: 20px; border: 5px solid #df6dc3; border-radius: 20px; 
            padding: 150px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
            max-width: 1500px; margin-left: auto; margin-right: auto;">
                     <iframe
@@ -290,6 +631,7 @@
             </div>
         </div>
 
+
         <div class="footer-rsvp fade-in">
 
 
@@ -311,18 +653,47 @@
         </div>
     </section>
 
-    <!-- Sección Regalos -->
-    <section id="regalos">
-        <div class="container">
-            <h2 class="section-title">Mesa de Regalos</h2>
-        </div>
-    </section>
-
-
     <!-- Sección Galería -->
     <section id="galeria" class="alt">
         <div class="container">
             <h2 class="section-title">Galería</h2>
+
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="img/imagen1.jpg" alt="Fotografía 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/imagen2.jpg" alt="Fotografía 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/imagen3.jpg" alt="Fotografía 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/imagen4.jpg" alt="Fotografía 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/imagen5.jpg" alt="Fotografía 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/imagen6.jpg" alt="Fotografía 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/imagen7.jpg" alt="Fotografía 7">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/imagen8.jpg" alt="Fotografía 8">
+                </div>
+            </div>
+        </div>
+        <div id="lightbox" class="lightbox">
+            <span class="close-lightbox">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+            <div class="lightbox-caption"></div>
+
+            <span class="lightbox-prev">&#10094;</span>
+            <span class="lightbox-next">&#10095;</span>
+        </div>
+
     </section>
 
     <!-- Elfsight Background Music | Untitled Background Music -->
@@ -363,7 +734,7 @@
                 <div class="footer-info fade-in">
                     <div class="initials">Mis XV Años</div>
                     <h3>Mariana</h3>
-                    <p class="date">20 de Diciembre de 2025</p>
+                    <p class="date">21 de Febrero de 2026</p>
                     <p class="location">Escuinapa, Sinaloa</p>
                     <div class="divider-animated"></div>
                 </div>
@@ -560,35 +931,27 @@
     </script>
 
     <script>
-        // Función para copiar la CLABE al portapapeles
-        function copiarClabe() {
-            const texto = "072290013155182912";
+        function abrirTodo() {
+            const container = document.getElementById('envelope-container');
 
-            const inputTemp = document.createElement("input");
-            inputTemp.value = texto;
-            document.body.appendChild(inputTemp);
+            // Añadimos la clase que dispara las animaciones CSS
+            container.classList.add('opened');
 
-            inputTemp.select();
-            document.execCommand("copy");
+            // Habilitamos el scroll inmediatamente o con un pequeño delay
+            setTimeout(() => {
+                document.body.classList.remove('no-scroll');
+            }, 500);
 
-            document.body.removeChild(inputTemp);
-
-            const mensaje = document.getElementById("copyMessage");
-            mensaje.classList.add("show");
-
-            setTimeout(function () {
-                mensaje.classList.remove("show");
-            }, 2000);
+            // Eliminamos el contenedor del DOM después de la animación para que no estorbe
+            setTimeout(() => {
+                container.style.display = 'none';
+            }, 1300);
         }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const botonCopiar = document.getElementById("copyButton");
-            if (botonCopiar) {
-                botonCopiar.addEventListener("click", copiarClabe);
-            }
-        });
     </script>
-    <div id="copyMessage" class="copy-message">¡CLABE copiada exitosamente!</div>
+
+</body>
+
+</html>
 
 </body>
 
