@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mariana - Mis XV Años</title>
-    <link rel="stylesheet" href="style/style.css?=27">
+    <link rel="stylesheet" href="style/style.css?=29">
     <link rel="stylesheet" href="src/output.css">
 </head>
 <style>
@@ -281,6 +281,75 @@
         animation: parpadeo 2s infinite ease-in-out;
         /* 2 segundos, infinito y suave */
     }
+
+    /* Contenedor principal */
+    .theme-helper-container {
+        /* Centrado del contenedor en la página */
+        margin: 40px auto;
+        width: 90%;
+        max-width: 600px;
+        /* Evita que sea demasiado ancho en monitor */
+
+        /* Diseño interno */
+        padding: 25px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Centra el contenido horizontalmente */
+        justify-content: center;
+        text-align: center;
+
+        /* Fondo inicial (Modo claro) */
+        background-color: #f8f9fa;
+        border: 1px solid #e0e0e0;
+        transition: all 0.4s ease;
+    }
+
+    .theme-helper-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        /* Espacio entre el texto y el switch */
+    }
+
+    .theme-helper-text {
+        margin: 0;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        color: #444;
+    }
+
+    /* Cuando el modo oscuro está activo (asumiendo que usas la clase en el body) */
+    body.dark-mode .theme-helper-container {
+        background-color: #2d2d2d;
+        border-color: #444;
+    }
+
+    body.dark-mode .theme-helper-text {
+        color: #ffffff;
+    }
+
+    /* Ajustes para móviles */
+    @media (max-width: 600px) {
+        .theme-helper-content {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    /* --- AQUÍ EL CSS DE TU SWITCH --- */
+    /* Asegúrate de que el .switch tenga un tamaño controlado */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        /* Ajusta según el tamaño de tu slider */
+        height: 30px;
+        flex-shrink: 0;
+        /* Evita que el switch se deforme */
+    }
 </style>
 
 <body class="no-scroll">
@@ -318,72 +387,7 @@
                     <a href="#evento">EVENTO</a>
                     <a href="#info">INFORMACIÓN</a>
                     <a href="#galeria">GALERÍA</a>
-                    <label class="switch">
-                        <input id="input" type="checkbox" checked="lightTheme" />
-                        <div class="slider round">
-                            <div class="sun-moon">
-                                <svg id="moon-dot-1" class="moon-dot" viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="50"></circle>
-                                </svg>
-                                <svg id="moon-dot-2" class="moon-dot" viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="50"></circle>
-                                </svg>
-                                <svg id="moon-dot-3" class="moon-dot" viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="50"></circle>
-                                </svg>
-                                <svg id="light-ray-1" class="light-ray" viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="50"></circle>
-                                </svg>
-                                <svg id="light-ray-2" class="light-ray" viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="50"></circle>
-                                </svg>
-                                <svg id="light-ray-3" class="light-ray" viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="50"></circle>
-                                </svg>
 
-                                <svg id="cloud-1" class="cloud-dark" viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="50"></circle>
-                                </svg>
-                                <svg id="cloud-2" class="cloud-dark" viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="50"></circle>
-                                </svg>
-                                <svg id="cloud-3" class="cloud-dark" viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="50"></circle>
-                                </svg>
-                                <svg id="cloud-4" class="cloud-light" viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="50"></circle>
-                                </svg>
-                                <svg id="cloud-5" class="cloud-light" viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="50"></circle>
-                                </svg>
-                                <svg id="cloud-6" class="cloud-light" viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="50"></circle>
-                                </svg>
-                            </div>
-                            <div class="stars">
-                                <svg id="star-1" class="star" viewBox="0 0 20 20">
-                                    <path
-                                        d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
-                                    </path>
-                                </svg>
-                                <svg id="star-2" class="star" viewBox="0 0 20 20">
-                                    <path
-                                        d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
-                                    </path>
-                                </svg>
-                                <svg id="star-3" class="star" viewBox="0 0 20 20">
-                                    <path
-                                        d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
-                                    </path>
-                                </svg>
-                                <svg id="star-4" class="star" viewBox="0 0 20 20">
-                                    <path
-                                        d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
-                                    </path>
-                                </svg>
-                            </div>
-                        </div>
-                    </label>
 
                 </nav>
             </div>
@@ -393,72 +397,6 @@
                 <a href="#evento">EVENTO</a>
                 <a href="#info">INFORMACIÓN</a>
                 <a href="#galeria">GALERÍA</a>
-                <label class="switch">
-                    <input id="input" type="checkbox" />
-                    <div class="slider round">
-                        <div class="sun-moon">
-                            <svg id="moon-dot-1" class="moon-dot" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="50"></circle>
-                            </svg>
-                            <svg id="moon-dot-2" class="moon-dot" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="50"></circle>
-                            </svg>
-                            <svg id="moon-dot-3" class="moon-dot" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="50"></circle>
-                            </svg>
-                            <svg id="light-ray-1" class="light-ray" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="50"></circle>
-                            </svg>
-                            <svg id="light-ray-2" class="light-ray" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="50"></circle>
-                            </svg>
-                            <svg id="light-ray-3" class="light-ray" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="50"></circle>
-                            </svg>
-
-                            <svg id="cloud-1" class="cloud-dark" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="50"></circle>
-                            </svg>
-                            <svg id="cloud-2" class="cloud-dark" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="50"></circle>
-                            </svg>
-                            <svg id="cloud-3" class="cloud-dark" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="50"></circle>
-                            </svg>
-                            <svg id="cloud-4" class="cloud-light" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="50"></circle>
-                            </svg>
-                            <svg id="cloud-5" class="cloud-light" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="50"></circle>
-                            </svg>
-                            <svg id="cloud-6" class="cloud-light" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="50"></circle>
-                            </svg>
-                        </div>
-                        <div class="stars">
-                            <svg id="star-1" class="star" viewBox="0 0 20 20">
-                                <path
-                                    d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
-                                </path>
-                            </svg>
-                            <svg id="star-2" class="star" viewBox="0 0 20 20">
-                                <path
-                                    d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
-                                </path>
-                            </svg>
-                            <svg id="star-3" class="star" viewBox="0 0 20 20">
-                                <path
-                                    d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
-                                </path>
-                            </svg>
-                            <svg id="star-4" class="star" viewBox="0 0 20 20">
-                                <path
-                                    d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
-                                </path>
-                            </svg>
-                        </div>
-                    </div>
-                </label>
             </nav>
         </div>
     </header>
@@ -488,6 +426,81 @@
         </div>
     </section>
 
+    <!-- cambio de tema -->
+    <div class="fondo" class="theme-helper-container">
+        <div class="theme-helper-content">
+            <p class="texto-dark" class="theme-helper-text">
+                Si los colores te resultan invasivos, prueba a usar el <strong>modo oscuro</strong>.
+            </p>
+            <label class="switch">
+                <input id="input" type="checkbox" checked="lightTheme" />
+                <div class="slider round">
+                    <div class="sun-moon">
+                        <svg id="moon-dot-1" class="moon-dot" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="50"></circle>
+                        </svg>
+                        <svg id="moon-dot-2" class="moon-dot" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="50"></circle>
+                        </svg>
+                        <svg id="moon-dot-3" class="moon-dot" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="50"></circle>
+                        </svg>
+                        <svg id="light-ray-1" class="light-ray" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="50"></circle>
+                        </svg>
+                        <svg id="light-ray-2" class="light-ray" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="50"></circle>
+                        </svg>
+                        <svg id="light-ray-3" class="light-ray" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="50"></circle>
+                        </svg>
+
+                        <svg id="cloud-1" class="cloud-dark" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="50"></circle>
+                        </svg>
+                        <svg id="cloud-2" class="cloud-dark" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="50"></circle>
+                        </svg>
+                        <svg id="cloud-3" class="cloud-dark" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="50"></circle>
+                        </svg>
+                        <svg id="cloud-4" class="cloud-light" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="50"></circle>
+                        </svg>
+                        <svg id="cloud-5" class="cloud-light" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="50"></circle>
+                        </svg>
+                        <svg id="cloud-6" class="cloud-light" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="50"></circle>
+                        </svg>
+                    </div>
+                    <div class="stars">
+                        <svg id="star-1" class="star" viewBox="0 0 20 20">
+                            <path
+                                d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
+                            </path>
+                        </svg>
+                        <svg id="star-2" class="star" viewBox="0 0 20 20">
+                            <path
+                                d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
+                            </path>
+                        </svg>
+                        <svg id="star-3" class="star" viewBox="0 0 20 20">
+                            <path
+                                d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
+                            </path>
+                        </svg>
+                        <svg id="star-4" class="star" viewBox="0 0 20 20">
+                            <path
+                                d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </label>
+
+        </div>
+    </div>
     <section class="alt">
         <div class="container" style="border: 2px solid #D9A5C0; 
                border-radius: 20px; 
@@ -567,7 +580,7 @@
 
             <h2 class="section-title">Ceremonia</h2>
 
-            <div class="cerem-card">
+            <div class="fondo" class="cerem-card">
                 <div class="cerem-img-box">
                     <img src="img/Parroquia.webp" alt="Iglesia">
                 </div>
@@ -581,9 +594,9 @@
 
                 <h3 style="font-family: Monserrat;">CATEDRAL SAN FRANCISCO <br> DE ASÍS</h3>
 
-                <p class="cerem-time-text">7:00 PM</p>
+                <p class="texto_dark" class="cerem-time-text">7:00 PM</p>
 
-                <p class="cerem-address-text">
+                <p class="texto_dark" class="cerem-address-text">
                     Centro, 82400 Escuinapa de <br> Hidalgo, Sin.
                 </p>
             </div>
@@ -598,7 +611,7 @@
 
             <h2 class="section-title">Recepción</h2>
 
-            <div class="cerem-card">
+            <div class="fondo" class="cerem-card">
                 <div class="cerem-img-box">
                     <img src="img/Parroquia.webp" alt="Iglesia">
                 </div>
@@ -612,9 +625,9 @@
 
                 <h3 style="font-family: Monserrat;">CATEDRAL SAN FRANCISCO <br> DE ASÍS</h3>
 
-                <p class="cerem-time-text">8:00 PM</p>
+                <p class="texto_dark" class="cerem-time-text">8:00 PM</p>
 
-                <p class="cerem-address-text">
+                <p class="texto_dark" class="cerem-address-text">
                     Veracruz 39, Centro, 82400 Escuinapa de<br> Hidalgo, Sin.
                 </p>
             </div>
@@ -654,9 +667,9 @@
                         </div>
                         <div class="timeline-content">
                             <span class="time">07:00 PM</span>
-                            <h3>Ceremonia Religiosa</h3>
-                            <p>Parroquia San Francisco de Asís</p>
-                            <p class="location-detail">Escuinapa, Sinaloa</p>
+                            <h3 style="font-size: 25px;">Ceremonia Religiosa</h3>
+                            <p>Iglesia San Francisco de Asís.</p>
+                            <p class="location-detail">Escuinapa, Sinaloa.</p>
                         </div>
                     </div>
 
@@ -666,9 +679,9 @@
                         </div>
                         <div class="timeline-content">
                             <span class="time">08:00 PM</span>
-                            <h3>Recepción</h3>
-                            <p>Salón Zahara's</p>
-                            <p class="location-detail">¡Comienza la celebración!</p>
+                            <h3 style="font-size: 25px;">Recepción</h3>
+                            <p>Salón Zahara's.</p>
+                            <p class="location-detail">Escuinapa, Sinaloa.</p>
                         </div>
                     </div>
 
@@ -681,10 +694,8 @@
                                 src="img/textura_papel.jpg" alt="Borde">
                         </div>
                         <div class="timeline-content">
-                            <span class="time">07:00 PM</span>
-                            <h3>Ceremonia Religiosa</h3>
-                            <p>Parroquia San Francisco de Asís</p>
-                            <p class="location-detail">Escuinapa, Sinaloa</p>
+                            <span class="time">08:30 PM</span>
+                            <h3 style="font-size: 25px;">Vals</h3>
                         </div>
                     </div>
                     <div class="timeline-item right">
@@ -697,7 +708,7 @@
                         </div>
                         <div class="timeline-content">
                             <span class="time">09:00 PM</span>
-                            <h3>Cena</h3>
+                            <h3 style="font-size: 25px;">Cena</h3>
                         </div>
                     </div>
                 </div>
@@ -793,14 +804,17 @@
 
                     <h3 style="margin-bottom: 15px;">Formal</h3>
 
-                    <img src="img/codigo_vestimenta.png" style="width: 250px; margin-bottom: 25px; display: block;"
+                    <img src="img/codigo_vestimenta.png"
+                        style="width: 250px; margin-bottom: 25px; display: block; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eee; border-radius: 15px;"
                         alt="Código de vestimenta">
 
                     <div
                         style="background-color: #fff; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eee;">
-                        <p style="margin-bottom: 15px; font-size: 1.1rem; color: #ff0000;">
-                            Agradeceremos evitar el uso de <strong>rosa lavanda</strong> o
-                            <strong>malva claro</strong>.
+                        <p
+                            style="margin-bottom: 15px; font-size: 1.1rem; color: #484848 !important; color-scheme: light;">
+                            Agradeceremos evitar el uso de
+                            <strong style="color: #000000 !important;">rosa lavanda</strong> o
+                            <strong style="color: #000000 !important;">malva claro</strong>.
                         </p>
 
                         <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
@@ -894,7 +908,7 @@
 
 
     <footer style="position: relative; 
-                   background-image: linear-gradient(rgba(49, 44, 47, 0), rgba(49, 44, 47, 0)), url(img/gif_fondo.gif); 
+                   background-image: linear-gradient(rgba(49, 44, 47, 0.383), rgba(49, 44, 47, 0.383)), url(img/textura_papel.jpg); 
                    background-size: cover; 
                    background-position: center; 
                    color: white; 

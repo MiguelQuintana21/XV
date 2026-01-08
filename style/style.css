@@ -2477,3 +2477,15 @@ h1 {
     line-height: 1.5;
     margin-bottom: 10px;
 }
+
+.dark-theme .fondo {
+    background-color: #000000;
+    color: #ffffff;
+
+}
+
+.dark-theme .texto_dark {
+    color: #ffffff;
+    /* Cambia el color de texto a blanco */
+}
+
