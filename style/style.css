@@ -775,7 +775,7 @@ body.dark-theme .gift-button:hover {
     height: 100%;
     border-radius: 50%;
     background-color: #F9FAF5;
-    border: 4px solid #df6dc3;
+    border: 4px solid #D9A5C0;
     box-shadow: 0 0 30px rgba(115, 117, 102, 0.2), inset 0 0 10px rgba(115, 117, 102, 0.1);
     position: relative;
 }
@@ -784,7 +784,7 @@ body.dark-theme .gift-button:hover {
     position: absolute;
     width: 12px;
     height: 12px;
-    background-color: #df6dc3;
+    background-color: #D9A5C0;
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -818,7 +818,7 @@ body.dark-theme .gift-button:hover {
 .second-hand {
     width: 2px;
     height: 80px;
-    background-color: #df6dc3;
+    background-color: #D9A5C0;
     animation: rotateSecondHand 60s linear infinite;
 }
 
@@ -930,7 +930,7 @@ body.dark-theme .gift-button:hover {
 .time-number {
     font-size: 42px;
     font-weight: 400;
-    color: #df6dc3;
+    color: #D9A5C0;
     font-family: "Alex Brush", cursive;
     margin-bottom: 5px;
 }
@@ -977,11 +977,11 @@ body.dark-theme .gift-button:hover {
 /* Modo oscuro */
 .dark-theme .clock-face {
     background-color: #ffffff;
-    border-color: #df6dc3;
+    border-color: #D9A5C0;
 }
 
 .dark-theme .clock-center {
-    background-color: #df6dc3;
+    background-color: #D9A5C0;
 }
 
 .dark-theme .hour-hand,
@@ -990,7 +990,7 @@ body.dark-theme .gift-button:hover {
 }
 
 .dark-theme .second-hand {
-    background-color: #df6dc3;
+    background-color: #D9A5C0;
 }
 
 .dark-theme .clock-number {
@@ -1002,7 +1002,7 @@ body.dark-theme .gift-button:hover {
 }
 
 .dark-theme .time-number {
-    color: #df6dc3;
+    color: #D9A5C0;
 }
 
 .dark-theme .time-label {
@@ -1274,8 +1274,8 @@ footer {
     position: absolute;
     width: 10px;
     height: 10px;
-    opacity: 0.3;
-    background-color: #df6dc3;
+    opacity: 0.5;
+    background-color: #D9A5C0;
     transform: rotate(45deg);
 }
 
@@ -1285,7 +1285,7 @@ footer {
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: #df6dc3;
+    background-color: #D9A5C0;
     border-radius: 50%;
 }
 
@@ -1411,7 +1411,7 @@ footer {
 .light-theme .heart,
 .light-theme .heart:before,
 .light-theme .heart:after {
-    background-color: #df6dc3;
+    background-color: #D9A5C0;
 }
 
 .light-theme .time-container span {
@@ -2248,7 +2248,7 @@ h1 {
     content: '';
     position: absolute;
     width: 3px;
-    background-color: #df6dc3;
+    background-color: #D9A5C0;
     top: 0;
     bottom: 0;
     left: 50%;
@@ -2272,7 +2272,7 @@ h1 {
     height: 20px;
     right: -10px;
     background-color: white;
-    border: 3px solid #df6dc3;
+    border: 3px solid #D9A5C0;
     top: 15px;
     border-radius: 50%;
     z-index: 1;
@@ -2299,18 +2299,18 @@ h1 {
     background: white;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-bottom: 3px solid #df6dc3;
+    border-bottom: 3px solid #D9A5C0;
 }
 
 .timeline-content h3 {
-    color: #df6dc3;
+    color: #D9A5C0;
     margin: 5px 0;
 }
 
 .time {
     display: block;
     font-weight: bold;
-    color: #df6dc3;
+    color: #D9A5C0;
     font-size: 1.2rem;
 }
 
@@ -2337,7 +2337,8 @@ h1 {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-    border: 3px solid #df6dc3;
+    border: 10px solid transparent;
+    border-image: url('/img/baile.png') 30 round;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
